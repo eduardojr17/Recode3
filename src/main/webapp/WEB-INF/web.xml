@@ -29,4 +29,14 @@
     <servlet-name>ViagemDelete</servlet-name>
     <url-pattern>/DeleteVg</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViagemFindAndUpdate</display-name>
+    <servlet-name>ViagemFindAndUpdate</servlet-name>
+    <servlet-class>controllers.ViagemFindAndUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViagemFindAndUpdate</servlet-name>
+    <url-pattern>/UpdateVg</url-pattern>
+  </servlet-mapping>
 </web-app>

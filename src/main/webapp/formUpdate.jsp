@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 
 <!DOCTYPE html>
@@ -44,61 +44,58 @@
         </div>
       </header>
       <!-- Cabeçalho -->
-      
-      
-      <!-- Consulta-->
-	<div class="container pb-lg-5 px-md-5">
+
+
+
+<!-- Atualizar Destino-->
+
+  <div class="container pb-lg-5 px-md-5">
+
     <div class="container py-5" id="icon-grid">
-      <h2 class="pb-2 border-bottom text-center"><strong>Consultar Destinos</strong></h2>
+      <h2 class="pb-2 border-bottom text-center"><strong>Atualizar Destinos</strong></h2>
     </div>
+
+    <form  class="row g-3" action="CreateAndUpdate" method="POST" >
     
-     <form action="CreateAndFind" method="GET" class="d-flex">
-        <input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Destino" aria-label="Search">
-        <button class="btn btn-primary" type="submit">Buscar</button>
-     </form>
-	
-    </div>
-	<!-- Fim Consulta-->
-	
-	<br>
-<div class="container">
-	<div class="row">
-		<div class="cold-md-7">
-			<hr>
-			<h3>Viagens</h3>
-			<hr>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Origem</th>
-						<th>Destino</th>
-						<th>Data Ida</th>
-						<th>Data Volta</th>
-						<th>Preco</th>
-					</tr>
-				</thead>
-				<tbody>
-				<c:forEach items="${viagens}" var="viagem">
-							<tr>
-								<td>${viagem.idDestino}</td>
-								<td>${viagem.origem}</td>
-								<td>${viagem.destino}</td>
-								<td>${viagem.dataIda}</td>
-								<td>${viagem.dataVolta}</td>
-								<td>${viagem.preco}</td>
-								<td>
-									<a href="DeleteVg?viagemId=${viagem.idDestino}">deletar</a> |
-									<a href="UpdateVg?viagemId=${viagem.idDestino}">atualizar</a>
-								</td>
-							</tr>
-						</c:forEach>
-				</tbody>
-			</table>
-			<h5><a href="destino.html">Voltar</a></h5>
-		</div>
-	</div>
-</div>
+      <input value="${viagem.idDestino}" name= "idDestino" type="number" style="visibility:hidden">
+      <br>
+      	
+      <div class="col-md-6">
+        <label for="inputOrigem" class="form-label">Origem</label>
+        <input value="${viagem.origem}" name="origem" maxlength="40" type="text"  class="form-control" placeholder="Origem" aria-label="Origem">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputDestino" class="form-label">Destino</label>
+        <input value="${viagem.destino}" name="destino" maxlength="40" type="text"  class="form-control" placeholder="Destino" aria-label="Destino">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputDataIda" class="form-label">Data: Ida</label>
+        <input value="${viagem.dataIda}" name="dataIda" type="date" class="form-control">
+      </div>
+      
+      <div class="col-md-6">
+        <label for="inputDataVolta" class="form-label">Data: Volta</label>
+        <input value="${viagem.dataVolta}" name="dataVolta" type="date" class="form-control">
+      </div>
+      
+      <div class="col-md-6">
+        <label for="imputpreco" class="form-label">Preço</label>
+        <input value="${viagem.preco}" name="preco" type="number" min="0.00" max="10000.00" step="0.01" class="form-control">
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-sucess" type="submit">Alterar dados</button>
+		<button class="btn btn-secondary" type="reset">Limpar Formulário</button>
+      </div>
+
+    </form>
+  </div>
+    <!--Fim Atualizar Cadastro-->
+
+
+
 
 
 

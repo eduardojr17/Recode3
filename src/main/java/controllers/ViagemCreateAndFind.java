@@ -51,7 +51,6 @@ public class ViagemCreateAndFind extends HttpServlet {
 		
 		ViagemDao.create(viagem);
 
-		//doGet(request, response);
 	}
 
 }

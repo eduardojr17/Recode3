@@ -30,7 +30,11 @@ public class ViagemCreateAndFind extends HttpServlet {
 				pesquisa="";
 			}	
 		
-			List<Viagem> viagens = ViagemDao.find(pesquisa);	
+			List<Viagem> viagens = ViagemDao.find(pesquisa);
+			
+			request.setAttribute("viagens", viagens);
+			RequestDispatcher requesDispatcher = request.getRequestDispatcher("lista.jsp");
+			requesDispatcher.forward(request, response);
 	}
 
 	

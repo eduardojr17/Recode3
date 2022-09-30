@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ViagemDelete</display-name>
+    <servlet-name>ViagemDelete</servlet-name>
+    <servlet-class>controllers.ViagemDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViagemDelete</servlet-name>
+    <url-pattern>/DeleteVg</url-pattern>
+  </servlet-mapping>
 </web-app>

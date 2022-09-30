@@ -43,6 +43,22 @@ public class ViagemDao implements CRUD {
 	
 	public static void delete(int idViagem) {
 		
+		sql = "DELETE FROM viagens WHERE idDestino = ?";
+		
+		try {
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, idViagem);
+			preparedStatement.executeUpdate();
+			
+			System.out.println("--correct delete on viagem");
+		
+		} catch (SQLException e) {
+			
+			System.out.println("--incorrect delete on viagem" + e.getMessage());
+		}
+		
 	}
 	
 	

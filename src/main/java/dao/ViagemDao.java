@@ -2,7 +2,10 @@ package dao;
 
 	import java.sql.Connection;
 	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
 	import java.sql.SQLException;
+	import java.sql.Statement;
+	import java.util.ArrayList;
 	import java.util.List;
 	import db.SQLConnection;
 	import model.Viagem;
@@ -16,7 +19,7 @@ public class ViagemDao implements CRUD {
 	
 	
 	public static void create(Viagem viagem) {
-		sql = "INSERT INTO viagem VALUES (null,?,?,?,?,?)";
+		sql = "INSERT INTO viagem VALUES (null,?,?,?,?,?,?,?)";
 					
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -26,7 +29,7 @@ public class ViagemDao implements CRUD {
 			preparedStatement.setString(3, viagem.getDataIda());
 			preparedStatement.setString(4, viagem.getDataVolta());
 			preparedStatement.setBigDecimal(5, viagem.getPreco());
-			
+						
 			preparedStatement.executeUpdate();
 			
 			System.out.println("--correct insert on database");
@@ -38,13 +41,51 @@ public class ViagemDao implements CRUD {
 				
 	}
 	
-	public static void delete(int clienteId) {
+	public static void delete(int idViagem) {
 		
 	}
 	
+	
+	
+	
+	
 	public static List<Viagem> find (String pesquisa) {
-		return null;
+		
+		sql = String.format("SELECT * FROM viagens WHERE destino like '%s%%' ", pesquisa, pesquisa);
+		List <Viagem> viagens = new ArrayList<Viagem>();	
+		
+		try {
+			
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(sql);
+			
+			while (resultSet.next()) {
+				
+				Viagem viagem = new Viagem();
+				
+				viagem.setIdDestino(resultSet.getInt("idDestino"));
+				viagem.setOrigem(resultSet.getString("Origem"));
+				viagem.setDestino(resultSet.getString("Destino"));
+				viagem.setDataIda(resultSet.getString("DataIda"));
+				viagem.setDataVolta(resultSet.getString("DataVolta"));
+				viagem.setPreco(resultSet.getBigDecimal("Preco"));
+				
+				viagens.add(viagem);
+			}
+			
+			System.out.println("--corret find Destinos");
+			return viagens;
+			
+		} catch (SQLException e) {
+			
+			System.out.println("--incorret find Destinos" + e.getMessage());
+			return null;			
 		}
+		
+	}
+	
+	
+	
 	
 	public static Viagem findByPk(int idDestino) {
 		return null;

@@ -1,5 +1,8 @@
-<!doctype html>
-<html lang="pt-br">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+
+<!DOCTYPE html>
+<html>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,106 +15,94 @@
   </head>
   <body class="bg-light">
 
-    <!-- CabeÃ§alho -->
+
+    <!-- Cabeçalho -->
     <header class="p-3 bg-dark text-white">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Atmos7"><use xlink:href="#atmos7"></use></svg>
             </a>
     
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="index.html" class="nav-link px-2 text-white">InÃ­cio</a></li>
-              <li><a href="promocoes.html" class="nav-link px-2 text-white">PromoÃ§Ãµes</a></li>
-              <li><a href="hoteis.html" class="nav-link px-2 text-white">HotÃ©is</a></li>
+              <li><a href="index.html" class="nav-link px-2 text-white">Início</a></li>
+              <li><a href="promocoes.html" class="nav-link px-2 text-white">Promoções</a></li>
+              <li><a href="hoteis.html" class="nav-link px-2 text-white">Hotéis</a></li>
               <li><a href="destinos.html" class="nav-link px-2 text-white">Destinos</a></li>
               <li><a href="ajuda.html" class="nav-link px-2 text-white">Ajuda</a></li>
               <li><a href="contato.html" class="nav-link px-2 text-white">Contato</a></li>
             </ul>
     
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+              <input type="search" class="form-control form-control-dark" placeholder="Pesquisar..." aria-label="Search">
             </form>
     
             <div class="text-end">
               <button type="button" class="btn btn-outline-light me-2">Entrar</button>
-              <button type="button" class="btn btn-warning">Cadastre-se</button>
+              <button type="button" class="btn btn-warning">Cadastrar</button>
             </div>
           </div>
         </div>
       </header>
-      <!-- CabeÃ§alho -->
-
-    <!-- Contato -->
-
-  <div class="container pb-lg-5 px-md-5">
-
-    <div class="container py-5" id="icon-grid">
-      <h2 class="pb-5 border-bottom text-center"><strong>Ajuda e Suporte</strong></h2>
-    </div>
-
-    <form class="row g-3">
-
+      <!-- Cabeçalho -->
       
-      <div class="col-md-6">
-        <label for="inputFullName" class="form-label">Nome</label>
-        <input type="text" class="form-control" placeholder="Nome e Sobrenome" aria-label="Nome e Sobrenome">
-      </div>
-
-      <div class="col-md-6">
-        <label for="inputCPF" class="form-label">CPF</label>
-        <input type="text" class="form-control" placeholder="CPF" aria-label="CPF">
-      </div>
-
-      <div class="col-md-6">
-        <label for="inputEmail" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail">
-      </div>
-      <div class="col-md-6">
-        <label for="inputTel" class="form-label">Telefone</label>
-        <input type="tel" class="form-control" id="phone">
-      </div>
-
-      <div class="col-md-4">
-        <select id="inputState" class="form-select">
-          <option selected>Selecione o Motivo...</option>
-          <option>ReclamaÃ§Ãµes</option>
-          <option>Elogios</option>
-          <option>DÃºvidas</option>
-          <option>Suporte</option>
-          <option>Outro motivo</option>
-        </select>
-      </div>
-
-      <div class="form-floating">
-        <textarea class="form-control" placeholder="Escreva aqui sua mensagem" id="floatingTextarea2" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">ComentÃ¡rio</label>
-      </div>
-
-
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Envie-me uma cÃ³pia da mensagem
-          </label>
-        </div>
-      </div>
-
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </div>
-
-    </form>
-  </div>
-    <!-- Fim Contato-->
-
-
-
+      
+      <!-- Consulta-->
+	<div class="container pb-lg-5 px-md-5">
+    <div class="container py-5" id="icon-grid">
+      <h2 class="pb-2 border-bottom text-center"><strong>Consultar Destinos</strong></h2>
+    </div>
     
+     <form action="CreateAndFind" method="GET" class="d-flex">
+        <input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Destino" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Buscar</button>
+     </form>
+	
+    </div>
+	<!-- Fim Consulta-->
+	
+	<br>
+<div class="container">
+	<div class="row">
+		<div class="cold-md-7">
+			<hr>
+			<h3>Viagens</h3>
+			<hr>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Origem</th>
+						<th>Destino</th>
+						<th>Data Ida</th>
+						<th>Data Volta</th>
+						<th>Preco</th>
+					</tr>
+				</thead>
+				<tbody>
+				<c:forEach items="${viagens}" var="viagem">
+							<tr>
+								<td>${viagem.idDestino}</td>
+								<td>${viagem.origem}</td>
+								<td>${viagem.destino}</td>
+								<td>${viagem.dataIda}</td>
+								<td>${viagem.dataVolta}</td>
+								<td>${viagem.preco}</td>
+								<td>
+									<a href="ViagemDestroy?viagemId=${viagem.idDestino}">deletar</a> |
+									<a href="ViagemUpdate?viagemId=${viagem.idDestino}">atualizar</a>
+								</td>
+							</tr>
+						</c:forEach>
+				</tbody>
+			</table>
+			<h5><a href="destino.html">Voltar</a></h5>
+		</div>
+	</div>
+</div>
 
 
-    <!--RodapÃ© / Footer-->
+
+<!--Rodapé / Footer-->
     <div class="container">
       <footer class="py-5">
           <div class="row justify-content-center">
@@ -119,9 +110,9 @@
             <div class="col-md-3 mb-3">
               <h5>Termos</h5>
               <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">CondiÃ§Ãµes Gerais</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Condições Gerais</a></li>
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Politica de Privacidade</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">CÃ³digo de Conduta Ã‰tica</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Código de Conduta Ética</a></li>
               </ul>
             </div>
          
@@ -130,34 +121,35 @@
               <ul class="nav flex-column">
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">SAC</a></li>
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Central de Realcionamento</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">PÃ³s venda</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">RemarcaÃ§Ãµes</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pós venda</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Remarcações</a></li>
               </ul>
             </div>
             
           <div class="col-md-4 mb-3">
           <form>
-            <h5>Casdastre seu email</h5>
+            <h5>Cadastre seu email</h5>
             <div class="form-group">
               <label for="exampleInputEmail1">E receba mensalmente nossas melhores ofertas</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
-              <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguÃ©m.</small>
+              <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
             </div>
             <button type="submit" class="btn btn-primary">Inscrever</button>
           </form>
           </div>
     
         <div class="d-flex justify-content-between py-4 my-4 border-top">
-          <p>Â© 2022 Atmos Company, Inc. Todos os Diretos reservados.</p>
+          <p>© 2022 Atmos Company, Inc. Todos os Diretos reservados.</p>
           <ul class="list-unstyled d-flex">
             <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
             <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
             <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
           </ul>
         </div>
+        </div>
       </footer>
     </div>
-    <!--RodapÃ© / Footer-->
+    <!--Rodapé / Footer-->
 
 
 

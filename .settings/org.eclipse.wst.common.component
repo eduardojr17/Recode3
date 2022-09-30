@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-        
-    <wb-module deploy-name="atmos.crud">
-                
-        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-                
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-                
-        <property name="java-output-path" value="/atmos.crud/build/classes"/>
-        <property name="context-root" value="atmos.crud"/>
             
-    </wb-module>
     
+    <wb-module deploy-name="atmoscrud">
+                        
+        
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                        
+        
+        <property name="java-output-path" value="/atmoscrud/build/classes"/>
+        <property name="context-root" value="atmoscrud"/>
+                    
+    
+    </wb-module>
+        
+
 </project-modules>

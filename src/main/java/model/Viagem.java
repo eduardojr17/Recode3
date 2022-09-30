@@ -57,8 +57,6 @@ public class Viagem {
 	}
 	public void setPreco(String parameter) {
 		
-		
 	}
-
 
 }
